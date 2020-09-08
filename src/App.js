@@ -1,26 +1,29 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Box from './components/box';
+import Form from './components/form';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [color, setColor] = useState('');
+    const [allB, setAllB] = useState({
+        colors:[],
+        c1:'',
+    });
+    const [colorArr, setColorArr] = useState(
+        {
+            colors:[''],
+            c1: ''
+        }
+        )
+    // console.log('AppcolorArr', colorArr);
+    return (
+        <div className="App">
+            <Form props={{color:color, setColor:setColor, colorArr:colorArr, setColorArr:setColorArr, allB:allB, setAllB:setAllB}}></Form>
+            
+        </div>
+    );
 }
 
 export default App;
